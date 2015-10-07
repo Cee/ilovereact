@@ -66,12 +66,39 @@ function addSmoothScrolling() {
 	}
 }
 
+function addScrollMagic() {
+	var controller = new ScrollMagic.Controller();
+
+    new ScrollMagic.Scene({
+        triggerElement: "#native",
+        triggerHook: "onEnter",
+		duration: "100%"
+    }).setTween(".bg-overlay", {
+        opacity: 1
+    }).addTo(controller);
+
+    new ScrollMagic.Scene({
+        triggerElement: "#native",
+        triggerHook: "onEnter",
+        duration: "100%"
+    }).setTween("#iphone-overlay", 1, { width: "50%", y: 0 })
+      .addTo(controller);
+
+    new ScrollMagic.Scene({
+        triggerElement: "#native",
+        triggerHook: "onLeave",
+        duration: "100%"
+    }).setPin("#iphone-overlay")
+      .addTo(controller);
+}
+
 // Start animating when the page is ready.
 window.onload = function() {
 	animateLogo();
 	animateRobot();
 	updateSliderControl();
 	addSmoothScrolling();
+	addScrollMagic();
 };
 
 window.onscroll = function() {

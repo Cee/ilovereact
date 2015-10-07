@@ -66,18 +66,18 @@ a:hover {
   padding: 10px;
 }
 
-.iphone-demo, .feature-description {
-  align-self: stretch;
-  flex-grow: 1;
-  flex-basis: 50%;
-
-  display: flex;
-  
-  flex-direction: column;
-  justify-content: center;
+.feature-description {
+  position: absolute;
+  width: 50%;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
 }
 
 .iphone-demo {
+  flex-grow: 1;
+  align-self: stretch;
+  flex-basis: 0;
   align-items: center;
 }
 
@@ -85,11 +85,10 @@ a:hover {
   align-items: flex-start;
 }
 
-.iphone-demo img:last-child,
-.feature-description img:last-child {
+.iphone-demo img {
   position: absolute;
   top: 50%;
-  left: 25%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 
@@ -129,7 +128,7 @@ body {
 }
 
 /** Overlay **/
-.overlay {
+.bg-overlay, .overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -138,9 +137,22 @@ body {
   background-image: linear-gradient(rgba(0,0,0,0),rgba(31,30,52,1));
 }
 
+.bg-overlay {
+  background-color: #1F1E34;
+  opacity: 0;
+}
 
 .nav, .react-logo, .links {
   position: relative;
   z-index: 2;
   padding-top: 10px;
+}
+
+#iphone-overlay {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(0, -40%);
+  z-index: 1;
 }

@@ -153,6 +153,19 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  transform: translate(0, -40%);
+  transform: translate(0, -25%);
   z-index: 1;
+}
+
+.nav {
+  margin-top: -15%;
+}
+
+@media (max-height: 700px) {
+  h1 {
+    font-size: 40px;
+  }
+  .react-logo {
+    height: 150px;
+  }
 }
